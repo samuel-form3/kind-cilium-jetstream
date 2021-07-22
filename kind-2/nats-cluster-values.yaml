@@ -1,0 +1,31 @@
+nats:
+  jetstream:
+    enabled: false
+
+auth:
+  enabled: true
+  basic:
+    accounts:
+      USERS:
+        users:
+        - user: a
+          password: a
+      SYS: 
+        users:
+        - user: admin
+          password: changeit
+  systemAccount: SYS
+
+cluster:
+  enabled: true
+  replicas: 3
+
+gateway:
+  enabled: true
+  name: "kind-2"
+  gateways:
+  - name: "kind-3"
+    urls:
+    - "nats://nats-0.nats.default.svc.kind-3.local:7522"
+
+k8sClusterDomain: kind-2.local

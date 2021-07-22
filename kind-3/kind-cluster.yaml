@@ -1,0 +1,19 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+    kind: ClusterConfiguration
+    networking:
+      dnsDomain: "kind-3.local"
+- role: worker
+  kubeadmConfigPatches:
+  - |
+    kind: ClusterConfiguration
+    networking:
+      dnsDomain: "kind-3.local"
+networking:
+  disableDefaultCNI: true
+  podSubnet: 10.3.0.0/16
+  serviceSubnet: 172.20.3.0/24
