@@ -1,17 +1,24 @@
-.PHONY: setup
-setup:
+.PHONY: setup-with-nats
+setup-with-nats: setup-kubernetes install-nats
+
+.PHONY: setup-kubernetes
+setup-kubernetes:
 	./setup-kubernetes.sh kind-1
 	./setup-kubernetes.sh kind-2
 	./setup-kubernetes.sh kind-3
 
-.PHONY: install
-install:
+.PHONY: destroy-kubernetes
+destroy-kubernetes:
+	kind delete clusters kind-kind-1 kind-kind-2 kind-kind-3
+
+.PHONY: install-nats
+install-nats:
 	./install-cluster.sh kind-1
 	./install-cluster.sh kind-2
 	./install-cluster.sh kind-3
 
-.PHONY: uninstall
-uninstall:
+.PHONY: uninstall-nats
+uninstall-nats:
 	./uninstall-cluster.sh kind-1
 	./uninstall-cluster.sh kind-2
 	./uninstall-cluster.sh kind-3
