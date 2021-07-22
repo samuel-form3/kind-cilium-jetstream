@@ -9,7 +9,7 @@ setup-kubernetes:
 
 .PHONY: destroy-kubernetes
 destroy-kubernetes:
-	kind delete clusters kind-kind-1 kind-kind-2 kind-kind-3
+	kind delete clusters kind-1 kind-2 kind-3
 
 .PHONY: install-nats
 install-nats:
