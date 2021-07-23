@@ -2,7 +2,7 @@
 
 CLUSTER_NAME=$1
 
-kubectl apply -f ./common/nats-server-tls-secret.yaml \
+kubectl apply -f ./$CLUSTER_NAME/cert-secret.yaml \
    --namespace default \
    --context kind-$CLUSTER_NAME
 
