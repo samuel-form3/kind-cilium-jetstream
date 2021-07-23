@@ -1,0 +1,17 @@
+{
+    "CN": "Nats CA",
+    "key": {
+        "algo": "ecdsa",
+        "size": 256
+    },
+    "names": [
+        {
+            "C": "US",
+            "ST": "San Francisco",
+            "L": "CA",
+            "O": "Nats",
+            "OU": "Nats"
+        }
+    ]
+}
+

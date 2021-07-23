@@ -6,13 +6,13 @@ nodes:
   - |
     kind: ClusterConfiguration
     networking:
-      dnsDomain: "kind-2.local"
+      dnsDomain: "kind-2.form3.local"
 - role: worker
   kubeadmConfigPatches:
   - |
     kind: ClusterConfiguration
     networking:
-      dnsDomain: "kind-2.local"
+      dnsDomain: "kind-2.form3.local"
 networking:
   disableDefaultCNI: true
   podSubnet: 10.2.0.0/16

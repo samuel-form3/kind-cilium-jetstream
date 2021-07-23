@@ -1,7 +1,7 @@
 nats:
   jetstream:
     enabled: false
-
+  
 auth:
   enabled: true
   basic:
@@ -19,6 +19,12 @@ auth:
 cluster:
   enabled: true
   replicas: 3
+  tls:
+    secret:
+      name: nats-server-tls
+    ca: "ca.crt"
+    cert: "tls.crt"
+    key: "tls.key"
 
 gateway:
   enabled: true
@@ -26,6 +32,6 @@ gateway:
   gateways:
   - name: "kind-2"
     urls:
-    - "nats://nats-0.nats.default.svc.kind-2.local:7522"
+    - "nats://nats-0.nats.default.svc.kind-2.form3.local:7522"
 
-k8sClusterDomain: kind-1.local
+k8sClusterDomain: kind-1.form3.local

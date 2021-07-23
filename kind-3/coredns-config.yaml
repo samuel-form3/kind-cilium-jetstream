@@ -11,7 +11,7 @@ data:
            lameduck 5s
         }
         ready
-        kubernetes kind-3.local in-addr.arpa ip6.arpa {
+        kubernetes kind-3.form3.local in-addr.arpa ip6.arpa {
            pods insecure
            fallthrough in-addr.arpa ip6.arpa
            ttl 30
@@ -25,7 +25,7 @@ data:
         reload
         loadbalance
    }
-   kind-1.local:53 {
+   kind-1.form3.local:53 {
        log
        errors
        ready
@@ -34,7 +34,7 @@ data:
             force_tcp
        }
    }
-   kind-2.local:53 {
+   kind-2.form3.local:53 {
        log
        errors
        ready

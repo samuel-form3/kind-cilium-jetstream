@@ -1,0 +1,22 @@
+{
+    "CN": "Nats Server",
+    "key": {
+        "algo": "ecdsa",
+        "size": 256
+    },
+    "names": [
+        {
+            "C": "US",
+            "ST": "San Francisco",
+            "L": "CA"
+        }
+    ],
+    "hosts": [
+        "nats",
+        "nats.default",
+        "*.form3.local",
+        "*.form3.local.",
+        "localhost",
+        "127.0.0.1"
+    ]
+}
