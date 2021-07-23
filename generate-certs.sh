@@ -25,3 +25,14 @@ kind: Secret
 metadata:
   name: nats-server-tls
 EOT
+
+cat <<EOT > ./common/ca-key-pair.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ca-key-pair
+  namespace: default
+data:
+  tls.crt: $CA
+  tls.key: $CA_KEY
+EOT

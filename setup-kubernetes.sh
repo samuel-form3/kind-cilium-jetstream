@@ -19,6 +19,14 @@ helm install \
   --set installCRDs=true \
   --set prometheus.enabled=false
 
+kubectl apply -f ./common/ca-issuer.yaml \
+   --namespace default \
+   --context kind-$CLUSTER_NAME
+
+kubectl apply -f ./common/ca-key-pair.yaml \
+   --namespace default \
+   --context kind-$CLUSTER_NAME
+
 # setup coredns
 kubectl apply -f ./$CLUSTER_NAME/coredns-config.yaml \
    --namespace kube-system \
