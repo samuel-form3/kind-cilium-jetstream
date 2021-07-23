@@ -11,6 +11,14 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/master/manifests/metallb.yaml --context=kind-$CLUSTER_NAME
 kubectl apply -f ./$CLUSTER_NAME/metallb-config-map.yaml --context=kind-$CLUSTER_NAME
 
+helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --version v1.4.0 \
+  --set installCRDs=true \
+  --set prometheus.enabled=false
+
 # setup coredns
 kubectl apply -f ./$CLUSTER_NAME/coredns-config.yaml \
    --namespace kube-system \
@@ -37,4 +45,3 @@ kubectl apply -f ./common/cilium-clustermesh-secret.yaml \
 kubectl patch ds cilium --patch-file=./common/cilium-ds-patch.yaml \
    --namespace kube-system \
    --context kind-$CLUSTER_NAME
-

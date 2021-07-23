@@ -27,6 +27,7 @@ uninstall-nats:
 helm-dependencies:
 	helm repo add nats https://nats-io.github.io/k8s/helm/charts/
 	helm repo add cilium https://helm.cilium.io/
+	helm repo add jetstack https://charts.jetstack.io
 	helm repo update
 
 .PHONY: server-list-cluster-1
